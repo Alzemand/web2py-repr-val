@@ -17,8 +17,8 @@ tb_teste.CCNPJ.requires    = [IS_NOT_EMPTY(), IS_CNPJ()]
 tb_teste.CCNPJ.represent   = lambda value, row: MASK_CNPJ()(value)
 tb_teste.SALARIO.label     = 'Salário'
 tb_teste.SALARIO.writable  = True
-tb_teste.SALARIO.requires  = [IS_NOT_EMPTY(), IS_MONEY(0 ,999999.99, , dot=',', symbol='€')]
-tb_teste.SALARIO.represent = lambda value, row: MASK_MONEY(dot=',', symbol='€')(value, 2)
+tb_teste.SALARIO.requires  = [IS_NOT_EMPTY(), IS_MONEY(0,999999.99,dot=',',symbol='€')]
+tb_teste.SALARIO.represent = lambda value, row: MASK_MONEY(dot=',',symbol='€')(value, 2)
 tb_teste.CBARRA1.label     = 'Codigo de Barras'
 tb_teste.CBARRA1.writable  = True
 tb_teste.CBARRA1.requires  = [IS_NOT_EMPTY(), IS_MODULO_10()]
