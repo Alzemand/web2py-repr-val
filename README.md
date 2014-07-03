@@ -1,5 +1,5 @@
-[github.com/flavio-casacurta/web2py-repr-val][0]
-========================================================
+web2py-repr-val
+===============
 
 Validators e Represents
 
@@ -23,11 +23,13 @@ To use:
      
 Exemplos de uso:
 ----------------
+ * Dê uma olhada em:   
 
-    db.py
-     
+     ``db.py``
+   
 Examples of use:
 ----------------
+ * Take a look at:  
 
-    db.py
+     ``db.py``
      
