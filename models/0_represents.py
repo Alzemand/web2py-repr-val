@@ -96,7 +96,7 @@ class MASK_CPF(object):
         if not isinstance(cpf,(list, str)):
            cpf=str(cpf)
         if isinstance(cpf, str):
-           cpf = cpf = UNMASK(cpf)
+           cpf = UNMASK(cpf)
            cpf = '0' * (11 - len(cpf)) + cpf
         return '{}{}{}.{}{}{}.{}{}{}-{}{}'.format(*cpf)
 
