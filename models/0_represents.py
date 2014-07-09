@@ -11,7 +11,7 @@ class MASK_DECIMAL(object):
 
     example::
 
-        INPUT(_type='text', _name='name', represent = lambda value, row: MASK_DECIMAL()(value, 0)
+        db.mytable.mycolumn.represent = lambda value, row: MASK_DECIMAL()(value, 0)
 
         >>> MASK_DECIMAL()('.12', 2)
         '0.12'
@@ -53,7 +53,7 @@ class MASK_MONEY(object):
 
     example::
 
-        INPUT(_type='text', _name='name', represent = lambda value, row: MASK_MONEY(symbol='R$')(value, 0)
+        db.mytable.mycolumn.represent = lambda value, row: MASK_MONEY(symbol='R$')(value, 0)
 
         >>> MASK_MONEY()('.12', 2)
         '$ 0.12'
@@ -81,7 +81,7 @@ class MASK_CPF(object):
 
     example::
 
-        INPUT(_type='text', _name='name', represent = lambda value, row: MASK_CPF()(value)
+        db.mytable.mycolumn.represent = lambda value, row: MASK_CPF()(value)
 
         >>> MASK_CPF()('12345678909')
         '123.456.789-09'
@@ -107,7 +107,7 @@ class MASK_CNPJ(object):
 
     example::
 
-        INPUT(_type='text', _name='name', represent = lambda value, row: MASK_CNPJ()(value)
+        db.mytable.mycolumn.represent = lambda value, row: MASK_CNPJ()(value)
 
         >>> MASK_CNPJ()('12345678000195')
         '12.345.678/0001-95'
@@ -132,7 +132,7 @@ class MASK_DV(object):
 
     example::
 
-        INPUT(_type='text', _name='name', represent = lambda value, row: MASK_DV('/')(value)
+        db.mytable.mycolumn.represent = lambda value, row: MASK_DV('/')(value)
 
         >>> MASK_DV('-')('12345678000195')
         '1234567800019-5'
