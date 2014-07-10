@@ -30,6 +30,11 @@ class MASK_DECIMAL(object):
 
     def __call__(self, value, dec=0):
         value = str(value)
+        id = IS_DECIMAL_IN_RANGE(dot=self.dot)(value)
+        sign = ''
+        if not id[1] and id[0] < 0:
+            sign = '-'
+            value = value[1:]
         if dec:
             pdot = value.find(self.dot) + 1
             z = dec - (len(value) - (pdot)) if pdot else dec
@@ -44,7 +49,7 @@ class MASK_DECIMAL(object):
                                      ,(('{}{}{}' + self.comma) * (q_int/3))[:-1]\
                                      ,self.dot + '{}' * dec if dec else '')").format(*value)
 
-        return mask
+        return sign + mask
 
 
 class MASK_MONEY(object):
