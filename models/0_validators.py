@@ -46,14 +46,23 @@ class IS_MONEY(object):
     def __init__(self, minimum=None
                      , maximum=None
                      , error_message=None
-                     , dot='.'
-                     , symbol='$'):
+                     , dot=''
+                     , symbol=''):
 
-         self.minimum = minimum
-         self.maximum = maximum
-         self.error_message=error_message
-         self.dot = dot
-         self.symbol = symbol
+        self.minimum = minimum
+        self.maximum = maximum
+        self.error_message=error_message
+
+        import locale
+        locale.setlocale(locale.LC_ALL, "")
+        if not dot:
+            self.dot = locale.localeconv()['decimal_point']
+        else:
+            self.dot = dot
+        if not symbol:
+            self.symbol = locale.localeconv()['currency_symbol']
+        else:
+            self.symbol = symbol
 
     def __call__(self, money):
 

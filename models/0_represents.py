@@ -70,13 +70,21 @@ class MASK_MONEY(object):
         'R$ 1.234,567'
     """
 
-    def __init__(self, dot='.', symbol='$'):
-         self.dot = dot
-         self.symbol = symbol
+    def __init__(self, dot='', symbol=''):
+        import locale
+        locale.setlocale(locale.LC_ALL, "")
+        if not dot:
+            self.dot = locale.localeconv()['decimal_point']
+        else:
+            self.dot = dot
+        if not symbol:
+            self.symbol = locale.localeconv()['currency_symbol']
+        else:
+            self.symbol = symbol
 
     def __call__(self, value, dec=0):
         rep =  ',' if self.dot == '.' else '.'
-        value = str(value).replace(rep, self.dot)
+        value = str(value).replace(rep, self.dot).replace(self.symbol, '')
         return '{} {}'.format(self.symbol, MASK_DECIMAL(dot=self.dot)(value, dec))
 
 
